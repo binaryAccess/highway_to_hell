@@ -12,6 +12,7 @@ Missing:
 - MS17-010 exploit needs to be changed with proper exploitation e.g. run powershell netcat reverse shell
 - Impacket for SMB Relaying
 - Search shares for embedded passwords in scripts
+- Responder
 
 
 TODO:
