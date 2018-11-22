@@ -23,7 +23,8 @@ def processFile(raw_kerberoast):
 	for aLine in raw_kerberoast:
 		if "Hash" in aLine:
 			hashDetected = True
-			current_hash.append(aLine.split(':')[1].strip())
+			# Split only on the first occurance, otherwise it breaks when the SPN has port value specified
+			current_hash.append(aLine.split(':', 1)[1].strip())
 
 		elif "SamAccountName" in aLine:
 			all_hashes.append(''.join(current_hash))
