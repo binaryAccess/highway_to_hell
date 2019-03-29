@@ -47,7 +47,7 @@ De ord eller bogstavkombinationer der skal søges på
 		$list = $list += "(`$_.Description -like `"*$word*`" -OR `$_.info -like `"*$word*`") -OR "
 	}
  
-	# $list = $list.substring(0,$list.Length-5)
+	$list = $list.substring(0,$list.Length-5)
 	# Use the line below to filter certain entries if need be
 	# $list = $list += "-and (`$_.Description -notlike `"*searchTerm*`") -and (`$_.Description -notlike `"*otherSearchTerm*`")"
 
