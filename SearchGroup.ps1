@@ -1,4 +1,8 @@
-﻿Function SearchGroupClearTextInformation
+param(
+    [string] $Domain
+)
+
+Function SearchGroupClearTextInformation
 {
     Param (
         [Parameter(Mandatory=$true)]
@@ -28,4 +32,4 @@
         fl
 }
 
-SearchGroupClearTextInformation -Terms @("pwd", "pass", "pw", "kodeord")
+SearchGroupClearTextInformation -Terms @("pwd", "pass", "pw", "kodeord") @PSBoundParameters

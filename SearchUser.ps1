@@ -1,4 +1,8 @@
-﻿Function SearchUserClearTextInformation
+param(
+    [string] $Domain
+)
+
+Function SearchUserClearTextInformation
 {
     Param (
         [Parameter(Mandatory=$true)]
@@ -28,4 +32,4 @@
         fl
 }
 
-SearchUserClearTextInformation -Terms @("pwd", "pass", "pw", "kodeord")
+SearchUserClearTextInformation -Terms @("pwd", "pass", "pw", "kodeord") @PSBoundParameters
