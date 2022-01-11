@@ -1,0 +1,8 @@
+# User member of
+$username = 'slpa'
+(New-Object System.DirectoryServices.DirectorySearcher("(&(objectCategory=User)(samAccountName=$($username)))")).FindOne().GetDirectoryEntry().memberOf | % { (New-Object System.DirectoryServices.DirectoryEntry("LDAP://"+$_)) } | Sort-Object sAMAccountName | SELECT @{name="Group Name";expression={$_.Name}},@{name="Group sAMAccountName";expression={$_.sAMAccountName}}
+
+
+## List Members in a Group
+$groupname = 'GroupNameHere'
+(New-Object System.DirectoryServices.DirectoryEntry((New-Object System.DirectoryServices.DirectorySearcher("(&(objectCategory=Group)(name=$($groupname)))")).FindOne().GetDirectoryEntry().Path)).member | % { (New-Object System.DirectoryServices.DirectoryEntry("LDAP://"+$_)) } | Sort-Object sAMAccountName | SELECT @{name="User Name";expression={$_.Name}},@{name="User sAMAccountName";expression={$_.sAMAccountName}}
